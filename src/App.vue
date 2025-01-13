@@ -1,21 +1,38 @@
 <template>
-<div class="flex__box">
-  <component :is="currentComponent"></component>
-</div>
+  <div class="flex__box">
+    <div class="tabs__box">
+      <Tabs @chooseHandle="showComponent" />
+    </div>
+    <div class="components__main--box">
+      <component :is="currentComponent"></component>
+    </div>
+  </div>
 </template>
 <script setup>
-import HelloWorld from "@/components/avatar/index.vue";
-import { reactive, defineAsyncComponent } from "vue";
+import { shallowRef, markRaw, defineAsyncComponent } from "vue"
+import Tabs from "@/components/tabs/index.vue"
 
-let currentComponent = defineAsyncComponent(async () =>
-  import(`@/components/avatar/index.vue`)
-)
+let currentComponent = shallowRef(defineAsyncComponent(() =>
+    import(`@/components/avatar/index.vue`)
+  ))
+
+const showComponent = async (key) => {
+  currentComponent.value = defineAsyncComponent(() =>
+    import(`@/components/${key}/index.vue`)
+  )
+}
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .flex__box {
   width: 100vw;
   height: 100vh;
-  display: flex;
+  background-color: black;
+  .components__main--box {
+    height: calc(100vh - 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>
