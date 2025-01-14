@@ -28,24 +28,55 @@ const chooseHandle = (item, index) => {
 
 <style lang="less" scoped>
 .tabs__main--box {
-  width: calc(100vw - 40px);
-  margin: 0 20px;
-  display: flex;
+  width: 100%;
   .tabs__item--box {
+    text-align: left;
     font-size: 12px;
-    padding: 6px 2px;
+    padding: 6px 0;
     cursor: pointer;
-    color: white;
+    color: greenyellow;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 90%;
+      height: 3px;
+      background-color: brown;
+      transform: translateX(-100%);
+      transition: transform 0.3s;
+    }
     &:hover {
-      color: white;
-      font-weight: 900;
-      border-bottom: 2px solid red;
+      font-weight: 999;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 90%;
+        height: 3px;
+        background-color: brown;
+        transform: translateX(-70%);
+        transition: transform 0.3s;
+      }
     }
   }
   .tabs__item--select {
-    color: white;
-    font-weight: 900;
-    border-bottom: 2px solid red;
+    color: greenyellow;
+    position: relative;
+    font-weight: 999;
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 90%;
+        height: 3px;
+        background-color: brown;
+        transform: translateX(-70%);
+        transition: transform 0.3s;
+      }
   }
 }
 </style>
