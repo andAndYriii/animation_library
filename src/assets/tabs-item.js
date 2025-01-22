@@ -8,6 +8,10 @@ const tabs = [
   { name: "卡片输入框", key: "inputCard" },
   { name: "信封效果", key: "envelope" },
   { name: "进度条", key: "progress" },
+  { name: "方形加载", key: "squareLoad" },
+  { name: "3d开关", key: "miniSwitch" },
+  { name: "小汽车", key: "carLoading" },
+  { name: "圣诞树", key: "christmasTree" },
 ]
 
 export { tabs }
