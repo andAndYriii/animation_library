@@ -12,6 +12,7 @@ const tabs = [
   { name: "3d开关", key: "miniSwitch" },
   { name: "小汽车", key: "carLoading" },
   { name: "圣诞树", key: "christmasTree" },
+  { name: "贪吃蛇", key: "Snake" },
 ]
 
 export { tabs }
